@@ -1,0 +1,793 @@
+{
+    "filters_settings": [
+		{
+			"target": {
+				"type": "json",
+				"value": "graph"
+			},
+			"filters": [
+				{
+					"type": {
+						"type": "json",
+						"value": "alignment"
+					},
+					"props": {
+						"alignment_weight": {
+							"type": "environment",
+							"value": "ALIGNMENT_WEIGHT"
+						},
+						"start": {
+							"type": "environment",
+							"value": "MIN_ALIGNMENT_SCORE"
+						},
+						"end": {
+							"type": "environment",
+							"value": "MAX_ALIGNMENT_SCORE"
+						},
+						"rule": {
+							"type": "json",
+							"value": "GE"
+						},
+						"delete_vertices": {
+							"type": "json",
+							"value": false
+						}
+					}
+				}
+			]
+		}
+    ],
+    "relevancies": [
+        {
+			"name": {
+                "type": "json",
+                "value": "superkingdom_reviewed"
+            },
+            "path": {
+                "type": "environment_json",
+                "environment_value": "SUPERKINGDOM_RELEVANCY",
+                "key_value": "path"
+            },
+            "index_column_name": {
+                "type": "environment_json",
+                "environment_value": "SUPERKINGDOM_RELEVANCY",
+                "key_value": "index_column_name"
+            },
+            "relevancy_column_name": {
+                "type": "environment_json",
+                "environment_value": "SUPERKINGDOM_RELEVANCY",
+                "key_value": "relevancy_column_name"
+            },
+            "type": {
+                "type": "environment_json",
+                "environment_value": "SUPERKINGDOM_RELEVANCY",
+                "key_value": "type"
+            },
+            "reviewed_db": {
+                "type": "json",
+                "value": true
+            }
+        },
+        {
+			"name": {
+                "type": "json",
+                "value": "superkingdom_unreviewed"
+            },
+            "path": {
+                "type": "environment_json",
+                "environment_value": "SUPERKINGDOM_RELEVANCY",
+                "key_value": "path"
+            },
+            "index_column_name": {
+                "type": "environment_json",
+                "environment_value": "SUPERKINGDOM_RELEVANCY",
+                "key_value": "index_column_name"
+            },
+            "relevancy_column_name": {
+                "type": "environment_json",
+                "environment_value": "SUPERKINGDOM_RELEVANCY",
+                "key_value": "relevancy_column_name"
+            },
+            "type": {
+                "type": "environment_json",
+                "environment_value": "SUPERKINGDOM_RELEVANCY",
+                "key_value": "type"
+            },
+            "reviewed_db": {
+                "type": "json",
+                "value": false
+            }
+        },
+        {
+			"name": {
+                "type": "json",
+                "value": "kingdom_reviewed"
+            },
+            "path": {
+                "type": "environment_json",
+                "environment_value": "KINGDOM_RELEVANCY",
+                "key_value": "path"
+            },
+            "index_column_name": {
+                "type": "environment_json",
+                "environment_value": "KINGDOM_RELEVANCY",
+                "key_value": "index_column_name"
+            },
+            "relevancy_column_name": {
+                "type": "environment_json",
+                "environment_value": "KINGDOM_RELEVANCY",
+                "key_value": "relevancy_column_name"
+            },
+            "type": {
+                "type": "environment_json",
+                "environment_value": "KINGDOM_RELEVANCY",
+                "key_value": "type"
+            },
+            "reviewed_db": {
+                "type": "json",
+                "value": true
+            }
+        },
+        {
+			"name": {
+                "type": "json",
+                "value": "kingdom_unreviewed"
+            },
+            "path": {
+                "type": "environment_json",
+                "environment_value": "KINGDOM_RELEVANCY",
+                "key_value": "path"
+            },
+            "index_column_name": {
+                "type": "environment_json",
+                "environment_value": "KINGDOM_RELEVANCY",
+                "key_value": "index_column_name"
+            },
+            "relevancy_column_name": {
+                "type": "environment_json",
+                "environment_value": "KINGDOM_RELEVANCY",
+                "key_value": "relevancy_column_name"
+            },
+            "type": {
+                "type": "environment_json",
+                "environment_value": "KINGDOM_RELEVANCY",
+                "key_value": "type"
+            },
+            "reviewed_db": {
+                "type": "json",
+                "value": false
+            }
+        },
+        {
+			"name": {
+                "type": "json",
+                "value": "phylum_reviewed"
+            },
+            "path": {
+                "type": "environment_json",
+                "environment_value": "PHYLUM_RELEVANCY",
+                "key_value": "path"
+            },
+            "index_column_name": {
+                "type": "environment_json",
+                "environment_value": "PHYLUM_RELEVANCY",
+                "key_value": "index_column_name"
+            },
+            "relevancy_column_name": {
+                "type": "environment_json",
+                "environment_value": "PHYLUM_RELEVANCY",
+                "key_value": "relevancy_column_name"
+            },
+            "type": {
+                "type": "environment_json",
+                "environment_value": "PHYLUM_RELEVANCY",
+                "key_value": "type"
+            },
+            "reviewed_db": {
+                "type": "json",
+                "value": true
+            }
+        },
+        {
+			"name": {
+                "type": "json",
+                "value": "phylum_unreviewed"
+            },
+            "path": {
+                "type": "environment_json",
+                "environment_value": "PHYLUM_RELEVANCY",
+                "key_value": "path"
+            },
+            "index_column_name": {
+                "type": "environment_json",
+                "environment_value": "PHYLUM_RELEVANCY",
+                "key_value": "index_column_name"
+            },
+            "relevancy_column_name": {
+                "type": "environment_json",
+                "environment_value": "PHYLUM_RELEVANCY",
+                "key_value": "relevancy_column_name"
+            },
+            "type": {
+                "type": "environment_json",
+                "environment_value": "PHYLUM_RELEVANCY",
+                "key_value": "type"
+            },
+            "reviewed_db": {
+                "type": "json",
+                "value": false
+            }
+        },
+        {
+			"name": {
+                "type": "json",
+                "value": "class_reviewed"
+            },
+            "path": {
+                "type": "environment_json",
+                "environment_value": "CLASS_RELEVANCY",
+                "key_value": "path"
+            },
+            "index_column_name": {
+                "type": "environment_json",
+                "environment_value": "CLASS_RELEVANCY",
+                "key_value": "index_column_name"
+            },
+            "relevancy_column_name": {
+                "type": "environment_json",
+                "environment_value": "CLASS_RELEVANCY",
+                "key_value": "relevancy_column_name"
+            },
+            "type": {
+                "type": "environment_json",
+                "environment_value": "CLASS_RELEVANCY",
+                "key_value": "type"
+            },
+            "reviewed_db": {
+                "type": "json",
+                "value": true
+            }
+        },
+        {
+			"name": {
+                "type": "json",
+                "value": "class_unreviewed"
+            },
+            "path": {
+                "type": "environment_json",
+                "environment_value": "CLASS_RELEVANCY",
+                "key_value": "path"
+            },
+            "index_column_name": {
+                "type": "environment_json",
+                "environment_value": "CLASS_RELEVANCY",
+                "key_value": "index_column_name"
+            },
+            "relevancy_column_name": {
+                "type": "environment_json",
+                "environment_value": "CLASS_RELEVANCY",
+                "key_value": "relevancy_column_name"
+            },
+            "type": {
+                "type": "environment_json",
+                "environment_value": "CLASS_RELEVANCY",
+                "key_value": "type"
+            },
+            "reviewed_db": {
+                "type": "json",
+                "value": false
+            }
+        },
+        {
+			"name": {
+                "type": "json",
+                "value": "order_reviewed"
+            },
+            "path": {
+                "type": "environment_json",
+                "environment_value": "ORDER_RELEVANCY",
+                "key_value": "path"
+            },
+            "index_column_name": {
+                "type": "environment_json",
+                "environment_value": "ORDER_RELEVANCY",
+                "key_value": "index_column_name"
+            },
+            "relevancy_column_name": {
+                "type": "environment_json",
+                "environment_value": "ORDER_RELEVANCY",
+                "key_value": "relevancy_column_name"
+            },
+            "type": {
+                "type": "environment_json",
+                "environment_value": "ORDER_RELEVANCY",
+                "key_value": "type"
+            },
+            "reviewed_db": {
+                "type": "json",
+                "value": true
+            }
+        },
+        {
+			"name": {
+                "type": "json",
+                "value": "order_unreviewed"
+            },
+            "path": {
+                "type": "environment_json",
+                "environment_value": "ORDER_RELEVANCY",
+                "key_value": "path"
+            },
+            "index_column_name": {
+                "type": "environment_json",
+                "environment_value": "ORDER_RELEVANCY",
+                "key_value": "index_column_name"
+            },
+            "relevancy_column_name": {
+                "type": "environment_json",
+                "environment_value": "ORDER_RELEVANCY",
+                "key_value": "relevancy_column_name"
+            },
+            "type": {
+                "type": "environment_json",
+                "environment_value": "ORDER_RELEVANCY",
+                "key_value": "type"
+            },
+            "reviewed_db": {
+                "type": "json",
+                "value": false
+            }
+        },
+        {
+			"name": {
+                "type": "json",
+                "value": "family_reviewed"
+            },
+            "path": {
+                "type": "environment_json",
+                "environment_value": "FAMILY_RELEVANCY",
+                "key_value": "path"
+            },
+            "index_column_name": {
+                "type": "environment_json",
+                "environment_value": "FAMILY_RELEVANCY",
+                "key_value": "index_column_name"
+            },
+            "relevancy_column_name": {
+                "type": "environment_json",
+                "environment_value": "FAMILY_RELEVANCY",
+                "key_value": "relevancy_column_name"
+            },
+            "type": {
+                "type": "environment_json",
+                "environment_value": "FAMILY_RELEVANCY",
+                "key_value": "type"
+            },
+            "reviewed_db": {
+                "type": "json",
+                "value": true
+            }
+        },
+        {
+			"name": {
+                "type": "json",
+                "value": "family_unreviewed"
+            },
+            "path": {
+                "type": "environment_json",
+                "environment_value": "FAMILY_RELEVANCY",
+                "key_value": "path"
+            },
+            "index_column_name": {
+                "type": "environment_json",
+                "environment_value": "FAMILY_RELEVANCY",
+                "key_value": "index_column_name"
+            },
+            "relevancy_column_name": {
+                "type": "environment_json",
+                "environment_value": "FAMILY_RELEVANCY",
+                "key_value": "relevancy_column_name"
+            },
+            "type": {
+                "type": "environment_json",
+                "environment_value": "FAMILY_RELEVANCY",
+                "key_value": "type"
+            },
+            "reviewed_db": {
+                "type": "json",
+                "value": false
+            }
+        },
+        {
+			"name": {
+                "type": "json",
+                "value": "genus_reviewed"
+            },
+            "path": {
+                "type": "environment_json",
+                "environment_value": "GENUS_RELEVANCY",
+                "key_value": "path"
+            },
+            "index_column_name": {
+                "type": "environment_json",
+                "environment_value": "GENUS_RELEVANCY",
+                "key_value": "index_column_name"
+            },
+            "relevancy_column_name": {
+                "type": "environment_json",
+                "environment_value": "GENUS_RELEVANCY",
+                "key_value": "relevancy_column_name"
+            },
+            "type": {
+                "type": "environment_json",
+                "environment_value": "GENUS_RELEVANCY",
+                "key_value": "type"
+            },
+            "reviewed_db": {
+                "type": "json",
+                "value": true
+            }
+        },
+        {
+			"name": {
+                "type": "json",
+                "value": "genus_unreviewed"
+            },
+            "path": {
+                "type": "environment_json",
+                "environment_value": "GENUS_RELEVANCY",
+                "key_value": "path"
+            },
+            "index_column_name": {
+                "type": "environment_json",
+                "environment_value": "GENUS_RELEVANCY",
+                "key_value": "index_column_name"
+            },
+            "relevancy_column_name": {
+                "type": "environment_json",
+                "environment_value": "GENUS_RELEVANCY",
+                "key_value": "relevancy_column_name"
+            },
+            "type": {
+                "type": "environment_json",
+                "environment_value": "GENUS_RELEVANCY",
+                "key_value": "type"
+            },
+            "reviewed_db": {
+                "type": "json",
+                "value": false
+            }
+        },
+        {
+			"name": {
+                "type": "json",
+                "value": "species_reviewed"
+            },
+            "path": {
+                "type": "environment_json",
+                "environment_value": "SPECIES_RELEVANCY",
+                "key_value": "path"
+            },
+            "index_column_name": {
+                "type": "environment_json",
+                "environment_value": "SPECIES_RELEVANCY",
+                "key_value": "index_column_name"
+            },
+            "relevancy_column_name": {
+                "type": "environment_json",
+                "environment_value": "SPECIES_RELEVANCY",
+                "key_value": "relevancy_column_name"
+            },
+            "type": {
+                "type": "environment_json",
+                "environment_value": "SPECIES_RELEVANCY",
+                "key_value": "type"
+            },
+            "reviewed_db": {
+                "type": "json",
+                "value": true
+            }
+        },
+        {
+			"name": {
+                "type": "json",
+                "value": "species_unreviewed"
+            },
+            "path": {
+                "type": "environment_json",
+                "environment_value": "SPECIES_RELEVANCY",
+                "key_value": "path"
+            },
+            "index_column_name": {
+                "type": "environment_json",
+                "environment_value": "SPECIES_RELEVANCY",
+                "key_value": "index_column_name"
+            },
+            "relevancy_column_name": {
+                "type": "environment_json",
+                "environment_value": "SPECIES_RELEVANCY",
+                "key_value": "relevancy_column_name"
+            },
+            "type": {
+                "type": "environment_json",
+                "environment_value": "SPECIES_RELEVANCY",
+                "key_value": "type"
+            },
+            "reviewed_db": {
+                "type": "json",
+                "value": false
+            }
+        }
+    ],
+    "analyses": {
+        "clustering": [
+            {
+                "analysis_type": {
+                    "type": "json",
+                    "value": "greedy"
+                },
+                "weights": {
+					"type": "environment",
+					"value": "ALIGNMENT_WEIGHT"
+                },
+                "metrics": {
+                    "type": "json",
+                    "value": [
+                        "gini",
+                        "custom",
+                        "chi",
+                        "rand_index"
+                    ]
+                }
+            },
+            {
+                "analysis_type": {
+                    "type": "json",
+                    "value": "leiden"
+                },
+                "weights": {
+					"type": "environment",
+					"value": "ALIGNMENT_WEIGHT"
+                },
+                "objective_function": {
+                    "type": "json",
+                    "value": "modularity"
+                },
+                "n_iterations": {
+                    "type": "json",
+                    "value": -1
+                },
+                "metrics": {
+                    "type": "json",
+                    "value": [
+                        "gini",
+                        "custom",
+                        "chi",
+                        "rand_index"
+                    ]
+                }
+            },
+            {
+                "analysis_type": {
+                    "type": "json",
+                    "value": "infomap"
+                },
+                "weights": {
+					"type": "environment",
+					"value": "ALIGNMENT_WEIGHT"
+                },
+                "n_trials": {
+                    "type": "json",
+                    "value": 10
+                },
+                "metrics": {
+                    "type": "json",
+                    "value": [
+                        "gini",
+                        "custom",
+                        "chi",
+                        "rand_index"
+                    ]
+                }
+            },
+            {
+                "analysis_type": {
+                    "type": "json",
+                    "value": "taxonomy"
+                },
+                "weights": {
+					"type": "environment",
+					"value": "ALIGNMENT_WEIGHT"
+                },
+                "taxonomy_level": {
+                    "type": "json",
+                    "value": "Superkingdom"
+                },
+                "metrics": {
+                    "type": "json",
+                    "value": [
+                        "gini",
+                        "custom",
+                        "chi",
+                        "rand_index"
+                    ]
+                }
+            },
+            {
+                "analysis_type": {
+                    "type": "json",
+                    "value": "taxonomy"
+                },
+                "weights": {
+					"type": "environment",
+					"value": "ALIGNMENT_WEIGHT"
+                },
+                "taxonomy_level": {
+                    "type": "json",
+                    "value": "Kingdom"
+                },
+                "metrics": {
+                    "type": "json",
+                    "value": [
+                        "gini",
+                        "custom",
+                        "chi",
+                        "rand_index"
+                    ]
+                }
+            },
+            {
+                "analysis_type": {
+                    "type": "json",
+                    "value": "taxonomy"
+                },
+                "weights": {
+					"type": "environment",
+					"value": "ALIGNMENT_WEIGHT"
+                },
+                "taxonomy_level": {
+                    "type": "json",
+                    "value": "Phylum"
+                },
+                "metrics": {
+                    "type": "json",
+                    "value": [
+                        "gini",
+                        "custom",
+                        "chi",
+                        "rand_index"
+                    ]
+                }
+            },
+            {
+                "analysis_type": {
+                    "type": "json",
+                    "value": "taxonomy"
+                },
+                "weights": {
+					"type": "environment",
+					"value": "ALIGNMENT_WEIGHT"
+                },
+                "taxonomy_level": {
+                    "type": "json",
+                    "value": "Class"
+                },
+                "metrics": {
+                    "type": "json",
+                    "value": [
+                        "gini",
+                        "custom",
+                        "chi",
+                        "rand_index"
+                    ]
+                }
+            },
+            {
+                "analysis_type": {
+                    "type": "json",
+                    "value": "taxonomy"
+                },
+                "weights": {
+					"type": "environment",
+					"value": "ALIGNMENT_WEIGHT"
+                },
+                "taxonomy_level": {
+                    "type": "json",
+                    "value": "Order"
+                },
+                "metrics": {
+                    "type": "json",
+                    "value": [
+                        "gini",
+                        "custom",
+                        "chi",
+                        "rand_index"
+                    ]
+                }
+            },
+            {
+                "analysis_type": {
+                    "type": "json",
+                    "value": "taxonomy"
+                },
+                "weights": {
+					"type": "environment",
+					"value": "ALIGNMENT_WEIGHT"
+                },
+                "taxonomy_level": {
+                    "type": "json",
+                    "value": "Family"
+                },
+                "metrics": {
+                    "type": "json",
+                    "value": [
+                        "gini",
+                        "custom",
+                        "chi",
+                        "rand_index"
+                    ]
+                }
+            },
+            {
+                "analysis_type": {
+                    "type": "json",
+                    "value": "taxonomy"
+                },
+                "weights": {
+					"type": "environment",
+					"value": "ALIGNMENT_WEIGHT"
+                },
+                "taxonomy_level": {
+                    "type": "json",
+                    "value": "Genus"
+                },
+                "metrics": {
+                    "type": "json",
+                    "value": [
+                        "gini",
+                        "custom",
+                        "chi",
+                        "rand_index"
+                    ]
+                }
+            },
+            {
+                "analysis_type": {
+                    "type": "json",
+                    "value": "taxonomy"
+                },
+                "weights": {
+					"type": "environment",
+					"value": "ALIGNMENT_WEIGHT"
+                },
+                "taxonomy_level": {
+                    "type": "json",
+                    "value": "Species"
+                },
+                "metrics": {
+                    "type": "json",
+                    "value": [
+                        "gini",
+                        "custom",
+                        "chi",
+                        "rand_index"
+                    ]
+                }
+            }
+        ],
+        "graph": [
+            {
+                "analysis_type": {
+                    "type": "json",
+                    "value": "simple"
+                },
+                "metrics": {
+                    "type": "json",
+                    "value": [
+                        "simple"
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,82 @@
+import argparse
+import networkx as nx
+import networkxgmml
+import pandas as pd
+import igraph as ig
+import json
+import ast
+from Bio.pairwise2 import align
+from Bio.SubsMat import MatrixInfo as matlist
+
+def array_converter(value):
+    result = []
+
+    if pd.notnull(value) and value != '':
+        if ';' in value:
+            result = str(value).strip().split(';')[:-1]
+        else:
+            result = ast.literal_eval(value)
+
+    return list(result)
+
+def load_db(location):
+
+    uniprot_db = pd.read_csv(location)
+
+    if len(uniprot_db) > 0:
+        uniprot_db['Entry'] = uniprot_db['Entry'].astype(str)
+        uniprot_db['Sequence'] = uniprot_db['Sequence'].astype(str)
+
+    uniprot_db = uniprot_db.set_index('Entry')
+    return uniprot_db
+
+
+
+def _main():
+
+    netwrok_sequences_db = None
+
+    parser = argparse.ArgumentParser(description="Find motifs of a graph")
+    parser.add_argument('protein', help='the name of the protien', type=str)
+    parser.add_argument('db', help='database file location for filtering', type=str)
+    parser.add_argument('out', help='output file location', type=str)
+    parser.add_argument('--gap_open_penalty', help='the cost of opening a gap', type=int, default=0)
+    parser.add_argument('--gap_extend_penalty', help='the cost of extending an open gap', type=int, default=-1)
+    parser.add_argument('--start', help='starting node index', type=int)
+    parser.add_argument('--size', help='size from strating node', type=int)
+
+
+    options = parser.parse_args()
+
+    print("protein = " + options.protein)
+    print("db = {}".format(options.db))
+    print("gap_open_penalty = {}".format(options.gap_open_penalty))
+    print("gap_extend_penalty = {}".format(options.gap_extend_penalty))
+    print("out = {}".format(options.out))
+
+    if options.db:
+         netwrok_sequences_db = load_db(options.db)
+
+
+
+    matrix = matlist.blosum62
+    alignment_scores = []
+    stoping_index = options.start + options.size if options.start + options.size < len(netwrok_sequences_db.index) else len(netwrok_sequences_db.index)
+    for idx_soruce in range(options.start, stoping_index, 1):
+        for idx_target in range(idx_soruce + 1, len(netwrok_sequences_db.index)):
+            source_name = netwrok_sequences_db.index[idx_soruce]
+            target_name = netwrok_sequences_db.index[idx_target]
+            source_sequence = netwrok_sequences_db.loc[source_name,'Sequence']
+            target_sequence = netwrok_sequences_db.loc[target_name,'Sequence']
+            score = align.globalds(source_sequence, target_sequence, matrix, options.gap_open_penalty, options.gap_extend_penalty, score_only=True)
+            alignment_scores.append({'soruce': source_name, 'target': target_name, 'global_alignment_score': score })
+
+    json_object = json.dumps(alignment_scores, indent = 4)
+
+    with open(options.out + '_' + str(options.start) + '_' + str(stoping_index), "w") as outfile:
+        outfile.write(json_object)
+
+if __name__ == '__main__':
+    _main()
+
+
